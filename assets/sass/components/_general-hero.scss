@@ -158,7 +158,8 @@
 
 		&__side-scroll {
 			display: flex;
-			bottom: 170px;
+			bottom: 13%;
+			left: 98px;
 			position: relative;
 			width: fit-content;
 			position: absolute;
@@ -167,8 +168,8 @@
 		}
 		&__side-scroll-text {
 			position: absolute;
-			top: 50%;
-			left: 30px;
+			top: 35%;
+			left: 84px;
 			display: flex;
 			font-family: $main-font;
 			text-transform: uppercase;
