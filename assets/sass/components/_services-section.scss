@@ -49,6 +49,9 @@
 		width: calc(100% - 76px);
 		margin: 0 auto;
 		height: 60vh;
+		opacity: 0;
+		left: -200px;
+		transition: 0.5s;
 		@include bgImage();
 	}
 	&__image {
@@ -58,6 +61,9 @@
 		margin-top: 20px;
 		@include bgImage();
 		z-index: 20;
+		opacity: 0;
+		left: 0px;
+		transition: 1.5s;
 	}
 	&__info {
 		position: relative;
@@ -77,6 +83,10 @@
 		@include cta();
 	}
 }
+// .even-service {
+// 	left: 0;
+// 	right: -200px;
+// }
 
 @include tablet() {
 	.service {
