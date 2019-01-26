@@ -1,4 +1,17 @@
-<?php if( get_row_layout() == 'general_hero' ): ?>
+<?php
+function url_get_contents ($Url) {
+    if (!function_exists('curl_init')){
+        die('CURL is not installed!');
+    }
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $Url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $output = curl_exec($ch);
+    curl_close($ch);
+    return $output;
+}
+
+if( get_row_layout() == 'general_hero' ): ?>
   <?php
     // $svgImg = get_sub_field('shape_object_image');
     $svgImg = get_sub_field('shape_object_image', 'option');
@@ -9,7 +22,7 @@
     <div class="g-hero__background" style="background-image: url('<?php the_sub_field('background_image'); ?>')">
       <div class="g-hero__shape-wrapper">
         <div class="g-hero__shape js-image-tilt" style="background-image: url('')">
-          <?php echo file_get_contents( $svgImg ); ?>
+          <?php echo url_get_contents( $svgImg ); ?>
           <h1 class="g-hero__title js-title-tilt"><?php the_title(); ?></h1>
         </div>
       </div>
