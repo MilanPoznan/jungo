@@ -1,6 +1,7 @@
-<?php if( get_row_layout() == 'general_hero' ): ?>
+<?php
+
+if( get_row_layout() == 'general_hero' ): ?>
   <?php
-    // $svgImg = get_sub_field('shape_object_image');
     $svgImg = get_sub_field('shape_object_image', 'option');
   ?>
 
