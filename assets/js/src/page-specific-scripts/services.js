@@ -1,28 +1,37 @@
-const $serviceInfo = $('.service__info');
 const $singleService = $('.service__single-service');
+const $serviceInfo = $('.service__info');
+const $shapeImage = $('.service__shape-image');
+const $serviceImage = $('.service__image');
+var countSection = 0;
 
-$(window).scroll(function() {
-	$singleService.each(function(index) {
+function loadSection(elements, duration, position) {
+	elements.each(function(index, val) {
 		var top_of_element = $(this).offset().top;
 		var bottom_of_element = $(this).offset().top + $(this).outerHeight();
 		var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
 		var top_of_screen = $(window).scrollTop();
-
+		// $(this).attr('id', index + 1);
 		setTimeout(() => {
 			if (
 				bottom_of_screen > top_of_element + 300 &&
 				top_of_screen < bottom_of_element
 			) {
-				// the element is visible, do something
-				$(this)
-					.children('.service__info')
-					.css('opacity', '1');
-				$(this)
-					.children('.service__info')
-					.css('left', '0');
-			} else {
-				// the element is not visible, do something else
+				$(this).css('opacity', '1');
+				$(this).css('left', position);
 			}
-		}, 500);
+		}, duration);
 	});
+
+	// If want to change position movement in even/odd elements
+	// if ($(this).attr('id') % 2 === 0) {
+
+	// }
+}
+$(window).scroll(() => {
+	loadSection($serviceInfo, 700, 0);
+	loadSection($shapeImage, 300, 30);
+	loadSection($serviceImage, 1000, 0);
+	if (window.innerWidth > 1200) {
+		loadSection($shapeImage, 300, 80);
+	}
 });
